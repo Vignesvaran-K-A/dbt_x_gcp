@@ -86,7 +86,7 @@ jobs:
             -e GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp.json \
             -e GCP_PROJECT_ID -e BQ_LOCATION -e SOCRATA_APP_TOKEN \
             "$IMAGE_NAME:$IMAGE_TAG" \
-            python ingestion/load_nyc311.py
+            python extract_load.py
 
       - name: Install dbt packages
         run: |
