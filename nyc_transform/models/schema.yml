@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: stg_nyc_311
+    description: "Cleaned and standardized NYC 311 complaints."
+    columns:
+      - name: complaint_id
+        description: "The primary key for the complaint."
+        tests:
+          - unique
+          - not_null
+      - name: created_at
+        tests:
+          - not_null

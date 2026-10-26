@@ -1,0 +1,50 @@
+# Secrets and credentials
+gcp_credentials.json
+*credentials*.json
+*service-account*.json
+*service_account*.json
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.streamlit/secrets.toml
+
+# Archives and data dumps
+files.zip
+*.zip
+
+# Python environments and caches
+.venv/
+venv/
+env/
+ENV/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# dbt
+target/
+dbt_packages/
+logs/
+profiles.yml
+.user.yml
+
+# Docker
+docker-compose.override.yml
+
+# Local data
+*.csv
+*.parquet
+*.duckdb
+
+# IDE and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
