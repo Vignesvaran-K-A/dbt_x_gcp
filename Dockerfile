@@ -3,5 +3,4 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY extract_load.py .
-COPY gcp_credentials.json .
 CMD ["python", "extract_load.py"]
