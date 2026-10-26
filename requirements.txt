@@ -4,3 +4,4 @@ numpy>=2.0.0
 google-cloud-bigquery[pandas]
 pyarrow
 db-dtypes
+dbt-bigquery
