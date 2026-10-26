@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 from google.cloud import bigquery
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "gcp_credentials.json"
+
 PROJECT_ID = "nyc-311-pipeline-512717"
 TABLE_ID = f"{PROJECT_ID}.bronze_layer.raw_nyc_311"
 
