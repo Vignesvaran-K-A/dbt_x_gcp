@@ -1,0 +1,11 @@
+nyc_transform:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: service-account
+      project: nyc-311-pipeline-512717
+      dataset: silver_layer
+      threads: 4
+      keyfile: /secrets/gcp.json
+      location: US
