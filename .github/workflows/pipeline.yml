@@ -3,6 +3,21 @@ name: NYC 311 ELT Pipeline
 on:
   workflow_dispatch:
     inputs:
+      start_date:
+        description: 'Start Date (YYYY-MM-DD) - Leave empty for yesterday'
+        type: string
+        required: false
+        default: '2026-09-01'
+      end_date:
+        description: 'End Date (YYYY-MM-DD) - Leave empty for current time'
+        type: string
+        required: false
+        default: '2026-10-31'
+      max_records:
+        description: 'Max records to fetch (e.g. 50000, or 0 for unlimited)'
+        type: string
+        required: false
+        default: '50000'
       dbt_target:
         description: dbt target profile
         type: choice
@@ -80,13 +95,17 @@ jobs:
       - name: Run ingestion container (NYC 311 to BigQuery raw)
         env:
           SOCRATA_APP_TOKEN: ${{ secrets.SOCRATA_APP_TOKEN }}
+          START_DATE: ${{ inputs.start_date }}
+          END_DATE: ${{ inputs.end_date }}
+          MAX_RECORDS: ${{ inputs.max_records }}
         run: |
           docker run --rm \
             -v "${{ steps.gcp_auth.outputs.credentials_file_path }}:/secrets/gcp.json:ro" \
             -e GOOGLE_APPLICATION_CREDENTIALS=/secrets/gcp.json \
             -e GCP_PROJECT_ID -e BQ_LOCATION -e SOCRATA_APP_TOKEN \
+            -e START_DATE -e END_DATE -e MAX_RECORDS \
             "$IMAGE_NAME:$IMAGE_TAG" \
-            sh -c "pip install --no-cache-dir pyarrow && python extract_load.py"
+            python extract_load.py
 
       # - name: Install dbt packages
       #   run: |
