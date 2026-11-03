@@ -7,5 +7,5 @@ nyc_transform:
       project: nyc-311-pipeline-512717
       dataset: silver_layer
       threads: 4
-      keyfile: /secrets/gcp.json
+      keyfile: "{{ env_var('DBT_KEYFILE', env_var('GOOGLE_APPLICATION_CREDENTIALS', '/secrets/gcp.json')) }}"
       location: US
