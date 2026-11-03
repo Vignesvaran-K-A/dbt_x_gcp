@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: bronze
-    database: nyc-311-pipeline-512717
+    database: "{{ target.project }}"
     schema: bronze_layer
     tables:
       - name: raw_nyc_311

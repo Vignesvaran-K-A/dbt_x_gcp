@@ -4,7 +4,7 @@ nyc_transform:
     dev:
       type: bigquery
       method: service-account
-      project: nyc-311-pipeline-512717
+      project: "{{ env_var('GCP_PROJECT_ID', 'nyc-311-pipeline-512717') }}"
       dataset: silver_layer
       threads: 4
       keyfile: "{{ env_var('DBT_KEYFILE', env_var('GOOGLE_APPLICATION_CREDENTIALS', '/secrets/gcp.json')) }}"

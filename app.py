@@ -35,7 +35,7 @@ st.set_page_config(
 # ---------------------------------------------------------------------------
 # Constants
 # ---------------------------------------------------------------------------
-PROJECT_ID = "nyc-311-pipeline-512717"
+PROJECT_ID = os.environ.get("GCP_PROJECT_ID", "nyc-311-pipeline-512717")
 DATASET = "silver_layer"
 STG_TABLE = f"`{PROJECT_ID}.{DATASET}.stg_nyc_311`"
 MART_TABLE = f"`{PROJECT_ID}.{DATASET}.mart_agency_performance`"
