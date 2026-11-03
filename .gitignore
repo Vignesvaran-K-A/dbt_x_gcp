@@ -1,4 +1,8 @@
 # Secrets and credentials
+secrets/
+*.json
+!package.json
+!tsconfig.json
 gcp_credentials.json
 *credentials*.json
 *service-account*.json
@@ -13,6 +17,8 @@ gcp_credentials.json
 # Archives and data dumps
 files.zip
 *.zip
+files/
+dashbaord/
 
 # Python environments and caches
 .venv/
