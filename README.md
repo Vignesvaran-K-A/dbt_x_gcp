@@ -82,6 +82,9 @@ dbt_x_gcp/
 ├── Dockerfile                    # Container definition for pipeline execution
 ├── profiles.yml                  # dbt BigQuery connection profile
 ├── requirements.txt              # Python project dependencies
+├── results/                      # Dashboard screenshots & pipeline results
+│   ├── dashboard_overview.png    # Live KPIs & daily volume trendlines
+│   └── dashboard_breakdown.png   # Top complaints & agency performance rankings
 └── README.md                     # Project documentation
 ```
 
@@ -173,9 +176,15 @@ The interactive dashboard will open automatically in your browser at `http://loc
 
 ## 📈 Dashboard Insights & Visuals
 
-* **Operational Efficiency:** Pinpoint agency bottlenecks by calculating resolution duration per agency and complaint category.
-* **Volume Spikes:** Monitor daily incoming request volumes paired with 7-day smoothing to spot seasonality and emergency spikes.
-* **Status Tracking:** Real-time visibility into open vs. closed cases to track department backlog.
+### Overview & Daily Volume Tracking
+![NYC 311 Dashboard Overview](results/dashboard_overview.png)
+* **Real-time KPI Metrics**: Tracks total volume, average resolution duration (hours/days), closed tickets, active backlog, and overall closure rates.
+* **Daily Trend Analysis**: Visualizes daily complaint counts with a 7-day rolling average to identify operational spikes.
+
+### Complaint Breakdown & Agency Performance
+![NYC 311 Complaint Types & Agency Performance](results/dashboard_breakdown.png)
+* **Top Complaint Categories**: Ranked horizontal breakdown of top municipal complaint types (e.g., residential noise, illegal parking, commercial noise).
+* **Agency Resolution Efficiency**: Benchmarks municipal agency resolution speed powered by BigQuery silver layer marts (`mart_agency_performance`).
 
 ---
 
